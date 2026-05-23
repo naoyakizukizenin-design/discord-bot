@@ -1,7 +1,8 @@
-import express, { type Express, type Request, type Response, type NextFunction } from "express";
+import express, { type Express } from "express";
 import cors from "cors";
 import pinoHttp from "pino-http";
 import router from "./routes";
+import discordRouter from "./routes/discord";
 import { logger } from "./lib/logger";
 
 const app: Express = express();
@@ -27,16 +28,7 @@ app.use(
 );
 app.use(cors());
 
-app.use((req: Request, _res: Response, next: NextFunction) => {
-  let data = "";
-  req.on("data", (chunk: Buffer) => {
-    data += chunk.toString();
-  });
-  req.on("end", () => {
-    (req as any).rawBody = data;
-    next();
-  });
-});
+app.use("/api", discordRouter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
