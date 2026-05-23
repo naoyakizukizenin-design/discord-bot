@@ -1,30 +1,17 @@
 # Discord Bot
 
-A Discord bot with 10 fun slash commands.
+10 slash commands, HTTP interactions (serverless-ready), channel + role restricted.
 
 ## Commands
+`/ping` `/roll` `/flip` `/8ball` `/choose` `/joke` `/fact` `/reverse` `/countdown` `/avatar`
 
-| Command | Description |
-|---------|-------------|
-| `/ping` | Check the bot's latency |
-| `/roll [sides]` | Roll a dice (default: d6) |
-| `/flip` | Flip a coin |
-| `/8ball <question>` | Ask the magic 8-ball |
-| `/choose <options>` | Pick randomly from a comma-separated list |
-| `/joke` | Get a random joke |
-| `/fact` | Get a random fun fact |
-| `/reverse <text>` | Reverse a piece of text |
-| `/countdown <from>` | Count down from a number (max 10) |
-| `/avatar [user]` | Show a user's avatar |
-
-## Setup
-
-1. Clone the repo
-2. Install dependencies: `npm install`
-3. Copy `.env.example` to `.env` and fill in your bot token
-4. Run: `npm run dev`
-
-## Bot Details
-
-- **Bot ID:** 1507630327424745472
-- **Public Key:** 3894b3ea63526a021e0e03016d0fca98ce66f51dab66c24d62c6dc46daa1230e
+## Railway Setup
+1. Connect this repo in Railway
+2. Set these env vars in Railway → Variables:
+   - `DISCORD_BOT_TOKEN`
+   - `DISCORD_PUBLIC_KEY`
+   - `DISCORD_CHANNEL_ID`
+   - `DISCORD_ROLE_IDS` (comma-separated)
+3. Start command: `npm start`
+4. Set Interactions Endpoint URL in Discord Developer Portal:
+   `https://your-app.up.railway.app/api/discord/interactions`
