@@ -1,6 +1,7 @@
 import express from "express";
 import { registerCommands } from "./commands.js";
 import { discordRouter } from "./routes.js";
+import { startGateway } from "./gateway.js";
 
 const PORT = process.env.PORT ?? "8080";
 const TOKEN = process.env.DISCORD_BOT_TOKEN;
@@ -14,6 +15,9 @@ if (!TOKEN) {
 registerCommands(TOKEN).catch((err) => {
   console.error("Failed to register commands:", err);
 });
+
+// Start gateway for member join events
+startGateway(TOKEN);
 
 const app = express();
 
