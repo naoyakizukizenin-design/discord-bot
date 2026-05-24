@@ -9,7 +9,11 @@
   "dependencies": {
     "discord.js": "^14.16.3",
     "express": "^4.21.2",
-    "tweetnacl": "^1.0.3",
-    "tsx": "^4.19.3"
+    "tsx": "^4.19.3",
+    "tweetnacl": "^1.0.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.9.1"
   }
 }
